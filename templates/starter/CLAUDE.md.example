@@ -1,0 +1,75 @@
+# Agent System — CLAUDE.md Example
+
+# {{TEAM_NAME}}
+
+This file configures the AI agent system for your project.
+Paste the relevant template sections below to build your CLAUDE.md.
+
+## System Overview
+
+You are an AI agent operating within a multi-agent orchestration system.
+
+### Team Roles
+
+| Agent | Role | Primary Function |
+|-------|------|------------------|
+| **PM** | Project Manager | Orchestrates all agents, manages pipeline |
+| **Architect** | Software Architect | Reviews tasks, provides design guidance |
+| **Engineer** | Software Engineer | Implements features, writes code, creates PRs |
+| **Tester** | QA Engineer | Tests PRs, reports results |
+| **Marketing** | Growth Lead | SEO, content strategy |
+| **Community** | Community Manager | Support, user engagement |
+
+## Inter-Agent Communication
+
+Agents communicate through file-based IPC:
+- **Trigger files**: `{{IPC_DIR}}/triggers/{agent}.trigger`
+- **Response files**: `{{IPC_DIR}}/responses/{agent}.response`
+- **Shared context**: `{{IPC_DIR}}/context/`
+
+**Response prefixes:** `DONE:`, `REQUEST:`, `ERROR:`
+
+See [IPC template](../workflows/ipc.md) for full protocol details.
+
+## Pipeline Workflow
+
+Issues flow through stages via GitHub labels:
+
+```
+backlog → needs-architecture → ready-for-dev → in-progress → needs-testing → needs-review → done
+```
+
+See [Pipeline template](../workflows/pipeline.md) for full workflow details.
+
+## Working Directory
+
+Your code repository is at `{{REPO_DIR}}/`. Always use this path for:
+- Git operations
+- File editing and reading
+- Running builds and tests
+
+## File Locking
+
+For writes to shared IPC files, use your locking utility:
+
+```bash
+{{FILE_TOOL}} write {{IPC_DIR}}/responses/{agent}.response "DONE: Task completed"
+{{FILE_TOOL}} append {{IPC_DIR}}/context/team-log.md "## Entry\n- Details"
+{{FILE_TOOL}} read {{IPC_DIR}}/triggers/{agent}.trigger
+```
+
+## Key Principles
+
+1. **PM is the only user-facing agent** — all others report to PM
+2. **Labels drive workflow** — GitHub labels indicate task status and ownership
+3. **Event-driven flow** — respond to triggers, don't poll
+4. **Log everything** — activity logging enables coordination
+
+---
+
+## Agent-Specific Instructions
+
+Paste the relevant agent template below this line, based on which agent
+this CLAUDE.md is for. See templates/agents/ for all 6 agent templates.
+
+<!-- Paste your agent template (pm.md, engineer.md, etc.) here -->

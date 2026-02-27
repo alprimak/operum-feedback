@@ -17,6 +17,21 @@ Welcome to the official feedback repository for **[Operum](https://operum.ai)** 
 | **Marketing** | Growth Lead | Content & SEO |
 | **Community** | Community Manager | Support & engagement |
 
+## Agent Templates — Open Source
+
+**The only public repo with production-tested 6-agent Claude Code orchestration.** Use these templates to build your own multi-agent AI team.
+
+| Template | What You Get |
+|----------|-------------|
+| [Agent Templates](templates/agents/) | Role definitions for PM, Architect, Engineer, Tester, Marketing, Community |
+| [Pipeline Workflow](templates/workflows/pipeline.md) | Label-driven issue pipeline (backlog → done) with agent ownership |
+| [IPC Protocol](templates/workflows/ipc.md) | File-based inter-agent communication with typed prefixes |
+| [Git Branching](templates/workflows/branching.md) | Agent home branches + feature branch conventions |
+| [Release Management](templates/workflows/release.md) | Semantic versioning and CI-driven releases |
+| [Starter Kit](templates/starter/) | CLAUDE.md example, project config, bootstrap guide |
+
+**Get started:** Browse the [templates directory](templates/) or read the [quick start guide](templates/README.md#quick-start).
+
 ## Submit Feedback
 
 ### Bug Reports

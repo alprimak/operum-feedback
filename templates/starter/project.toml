@@ -1,0 +1,19 @@
+# Project Knowledge Base
+#
+# This file stores project metadata that all agents can reference.
+# Place it at: .operum/knowledge/project.toml (or your preferred config path)
+#
+# Agents read this on startup to understand the project context.
+
+name = "My Project"
+repo = "https://github.com/owner/repo"
+
+# Optional fields — uncomment and fill in as needed:
+
+# description = "A brief description of what this project does"
+# tech_stack = ["typescript", "react", "node"]
+# primary_language = "typescript"
+# package_manager = "npm"
+# test_command = "npm test"
+# build_command = "npm run build"
+# lint_command = "npm run lint"
