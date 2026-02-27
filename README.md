@@ -1,36 +1,88 @@
-# Operum Feedback
+# Operum
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/alprimak/operum-feedback?style=social)](https://github.com/alprimak/operum-feedback/stargazers)
+[![Works with Claude Code](https://img.shields.io/badge/Works%20with-Claude%20Code-blueviolet)](https://claude.ai/code)
 
 > *"Labor omnia vincit"* — Work conquers all
 
-Welcome to the official feedback repository for **[Operum](https://operum.ai)** — the AI Agent Orchestrator for entrepreneurs and creators.
+**The complete multi-agent AI development team** — orchestrate 6 specialized Claude agents from a single desktop app.
 
-## About Operum
+Operum (Latin: *of works*, from *opus*) automates your development, marketing, and community workflows with a team of AI agents that coordinate through a label-driven pipeline.
 
-**Operum** (Latin: *of works*, from *opus*) is a desktop application that orchestrates 6 specialized AI agents to automate your development, marketing, and community workflows.
+## How It Works
 
-| Agent | Role | Domain |
-|-------|------|--------|
-| **PM** | Product Manager | Strategy & coordination |
-| **Architect** | Software Architect | Technical design |
-| **Engineer** | Software Engineer | Implementation |
-| **Tester** | QA Engineer | Quality assurance |
-| **Marketing** | Growth Lead | Content & SEO |
-| **Community** | Community Manager | Support & engagement |
+```mermaid
+graph LR
+    F([Founder]) --> PM[PM Agent]
+    PM --> A[Architect]
+    A -->|"ready-for-dev"| E[Engineer]
+    E -->|"needs-testing"| T[Tester]
+    T -->|"needs-review"| R[Review]
+    R --> D[Done]
+    T -.->|"FAIL"| E
+```
 
-## Agent Templates — Open Source
+Issues flow through the team automatically. Each agent owns specific pipeline stages, updates GitHub labels when done, and hands off to the next agent.
 
-**The only public repo with production-tested 6-agent Claude Code orchestration.** Use these templates to build your own multi-agent AI team.
+| Agent | Role | What It Does |
+|-------|------|-------------|
+| **PM** | Orchestrator | Manages pipeline, delegates tasks, reports to founder |
+| **Architect** | Technical Design | Reviews issues, provides implementation guidance |
+| **Engineer** | Implementation | Writes code, creates PRs, runs tests |
+| **Tester** | Quality Assurance | Tests PRs, approves or sends back for fixes |
+| **Marketing** | Growth | SEO, content strategy, discoverability |
+| **Community** | Support | Monitors channels, responds to users |
 
-| Template | What You Get |
+## Templates
+
+**The only public repo with production-tested 6-agent Claude Code orchestration.** Use these templates to build your own multi-agent AI system.
+
+### Agent Templates
+
+Define each agent's role, responsibilities, and step-by-step workflow.
+
+| Agent | Role | Template |
+|-------|------|----------|
+| PM | Orchestrates the team, manages pipeline | [`pm.md`](templates/agents/pm.md) |
+| Architect | Reviews tasks, provides architectural guidance | [`architect.md`](templates/agents/architect.md) |
+| Engineer | Implements features, writes code, creates PRs | [`engineer.md`](templates/agents/engineer.md) |
+| Tester | Tests PRs, reports results, approves for review | [`tester.md`](templates/agents/tester.md) |
+| Marketing | SEO, content strategy, growth initiatives | [`marketing.md`](templates/agents/marketing.md) |
+| Community | Discord/Twitter monitoring, user support | [`community.md`](templates/agents/community.md) |
+
+### Workflow Templates
+
+The coordination protocols that make multi-agent systems actually work.
+
+| Template | Description |
 |----------|-------------|
-| [Agent Templates](templates/agents/) | Role definitions for PM, Architect, Engineer, Tester, Marketing, Community |
-| [Pipeline Workflow](templates/workflows/pipeline.md) | Label-driven issue pipeline (backlog → done) with agent ownership |
-| [IPC Protocol](templates/workflows/ipc.md) | File-based inter-agent communication with typed prefixes |
-| [Git Branching](templates/workflows/branching.md) | Agent home branches + feature branch conventions |
-| [Release Management](templates/workflows/release.md) | Semantic versioning and CI-driven releases |
-| [Starter Kit](templates/starter/) | CLAUDE.md example, project config, bootstrap guide |
+| [Pipeline](templates/workflows/pipeline.md) | Label-driven issue flow: `backlog → needs-architecture → ready-for-dev → in-progress → needs-testing → needs-review → done` |
+| [IPC Protocol](templates/workflows/ipc.md) | File-based inter-agent communication with typed prefixes (`DONE:` / `REQUEST:` / `ERROR:`) |
+| [Branching](templates/workflows/branching.md) | Git workflow with agent home branches (`agent/{name}`) and feature branch conventions |
+| [Release](templates/workflows/release.md) | Semantic versioning and CI-driven release management |
 
-**Get started:** Browse the [templates directory](templates/) or read the [quick start guide](templates/README.md#quick-start).
+### Starter Kit
+
+Bootstrap a new multi-agent project in minutes.
+
+| File | Purpose |
+|------|---------|
+| [`CLAUDE.md.example`](templates/starter/CLAUDE.md.example) | Complete CLAUDE.md composing all templates |
+| [`project.toml`](templates/starter/project.toml) | Project metadata template |
+| [`goals.toml`](templates/starter/goals.toml) | Goals tracking template |
+
+[View all templates and quick start guide &rarr;](templates/README.md)
+
+## What Makes This Unique
+
+No other public repository provides these patterns:
+
+1. **Label-driven pipeline** — Issues flow through defined stages with clear agent ownership
+2. **File-based IPC** — Agents coordinate via trigger/response files with typed prefixes
+3. **Agent home branches** — Each agent gets a persistent `agent/{name}` branch for concurrent worktrees
+4. **Complete 6-role team** — PM, Architect, Engineer, Tester, Marketing, Community with handoff protocols
+5. **Event-driven coordination** — Agents respond to events, with self-assessment as backup
 
 ## Submit Feedback
 
