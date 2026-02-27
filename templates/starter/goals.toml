@@ -1,0 +1,23 @@
+# Goals Tracking
+#
+# Track near-term and long-term goals for the project.
+# Place it at: .operum/knowledge/goals.toml (or your preferred config path)
+#
+# The PM agent uses this to prioritize work and align the team.
+
+near_term = [
+    # "Launch MVP by end of month",
+    # "Set up CI/CD pipeline",
+    # "Write initial test suite",
+]
+
+# long_term = [
+#     "Reach 1000 users",
+#     "Add plugin system",
+#     "Open-source core modules",
+# ]
+
+# completed = [
+#     "Set up repository",
+#     "Define agent roles",
+# ]
