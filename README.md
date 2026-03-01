@@ -10,6 +10,18 @@
 
 Operum (Latin: *of works*, from *opus*) automates your development, marketing, and community workflows with a team of AI agents that coordinate through a label-driven pipeline.
 
+## Download
+
+Get the latest Operum desktop app:
+
+| Platform | Download |
+|----------|----------|
+| Linux | [.deb](https://github.com/alprimak/operum-feedback/releases/latest) · [AppImage](https://github.com/alprimak/operum-feedback/releases/latest) |
+| Windows | [.exe installer](https://github.com/alprimak/operum-feedback/releases/latest) |
+| macOS | [.dmg](https://github.com/alprimak/operum-feedback/releases/latest) |
+
+[View all releases &rarr;](https://github.com/alprimak/operum-feedback/releases)
+
 ## How It Works
 
 ```mermaid
